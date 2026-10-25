@@ -161,7 +161,7 @@ class TrailDetailScreen extends StatelessWidget {
                       _buildPhoto('assets/images/meadow.jpg'),
                       _buildPhoto('assets/images/peaks.jpg'),
                       _buildPhoto('assets/images/sunset.jpg'),
-                      _buildPhoto('assets/images/waterfall.jpg'),
+                      _buildPhoto('assets/images/waterfall.jpg', isLast: true),
                     ],
                   ),
                 ],
@@ -281,10 +281,29 @@ class TrailDetailScreen extends StatelessWidget {
 }
 
 //Funcion para construir cada foto de la grilla
-Widget _buildPhoto(String imagePath) {
+Widget _buildPhoto(String imagePath, {bool isLast = false}) {
   return ClipRRect(
     borderRadius: BorderRadius.circular(12),
-    child: Image.asset(imagePath, fit: BoxFit.cover),
+    child: Stack(
+      fit: StackFit.expand,
+      children: [
+        Image.asset(imagePath, fit: BoxFit.cover),
+
+        if (isLast)
+          Container(
+            color: Colors.black.withValues(alpha: 0.6), // Filtro oscuro
+            alignment: Alignment.center,
+            child: const Text(
+              '+18',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+      ],
+    ),
   );
 }
 
