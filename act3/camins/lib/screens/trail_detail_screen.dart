@@ -15,63 +15,67 @@ class TrailDetailScreen extends StatelessWidget {
           children: [
             // Aquí irán las zonas, de arriba abajo
 
-            // La Zona 2: Imagen de cabecera
-            HeaderImage(),
+            //Agrupa la cabecera y la ficha
+            Stack(
+              clipBehavior: Clip.none, //
+              children: [
+                // La Zona 2: Imagen de cabecera
+                HeaderImage(),
 
-            // Zona 3: La ficha de la ruta con sus estadísticas
-            Positioned(
-              bottom: -30, // Ajuste hacia abajo para que sobresalga del HeaderImage
-              left: 16,
-              right: 16,
-              child: Card(
-                color: const Color.fromARGB(255, 249, 249, 247),
-                margin: EdgeInsets.zero,
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
+                // Zona 3: La ficha de la ruta con sus estadísticas
+                Positioned(
+                  bottom: -30, // Ajuste hacia abajo para que sobresalga del HeaderImage
+                  left: 16,
+                  right: 16,
+                  child: Card(
+                    color: const Color.fromARGB(255, 249, 249, 247),
+                    margin: EdgeInsets.zero,
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
 
-
-                child: SizedBox(
-                  height: 88,
-                  child: Row(
-                    children: [
-                      // Expanded para que ocupen partes iguales
-                      Expanded(
-                        child: StatItem(
-                          icon: Icons.route,
-                          value: '9,4 km',
-                          label: 'Distància',
-                        ),
+                    child: SizedBox(
+                      height: 88,
+                      child: Row(
+                        children: [
+                          // Expanded para que ocupen partes iguales
+                          Expanded(
+                            child: StatItem(
+                              icon: Icons.route,
+                              value: '9,4 km',
+                              label: 'Distància',
+                            ),
+                          ),
+                          Expanded(
+                            child: StatItem(
+                              icon: Icons.trending_up,
+                              value: '620 m',
+                              label: 'Desnivell',
+                            ),
+                          ),
+                          Expanded(
+                            child: StatItem(
+                              icon: Icons.schedule,
+                              value: '3 h 45',
+                              label: 'Durada',
+                            ),
+                          ),
+                          Expanded(
+                            child: StatItem(
+                              icon: Icons.terrain,
+                              value: 'Moderada',
+                              label: 'Dificultat',
+                            ),
+                          ),
+                        ],
                       ),
-                      Expanded(
-                        child: StatItem(
-                          icon: Icons.trending_up,
-                          value: '620 m',
-                          label: 'Desnivell',
-                        ),
-                      ),
-                      Expanded(
-                        child: StatItem(
-                          icon: Icons.schedule,
-                          value: '3 h 45',
-                          label: 'Durada',
-                        ),
-                      ),
-                      Expanded(
-                        child: StatItem(
-                          icon: Icons.terrain,
-                          value: 'Moderada',
-                          label: 'Dificultat',
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
-
-            AppStyles.mediumSeparator,
+            const SizedBox(height: 50),
             // Zona 4: Sobre la ruta
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),

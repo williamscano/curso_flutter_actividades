@@ -33,7 +33,7 @@ class HeaderImage extends StatelessWidget {
         ),
         // 3. Textos (Región, Título, Valoración)
         Positioned(
-          bottom: 24,
+          bottom: 64,
           left: 16,
           right: 16,
           child: Column(
