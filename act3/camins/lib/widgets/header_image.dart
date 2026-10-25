@@ -8,9 +8,6 @@ class HeaderImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-       
-       
-
         // 1. Imagen de fondo
         Image.asset(
           'assets/images/header.jpg',
@@ -93,7 +90,7 @@ class HeaderImage extends StatelessWidget {
             ],
           ),
         ),
-         // 0. Reto: Botones superiores
+        // 0. Reto: Botones superiores
         Positioned(
           top: 40, // Ajusta esto para que no choque con la barra de estado del móvil
           left: 16,
@@ -118,11 +115,11 @@ class HeaderImage extends StatelessWidget {
     );
   }
 
-    Widget _buildIconButton(IconData icon) {
+  Widget _buildIconButton(IconData icon) {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.3), // Fondo semitransparente
+        color: Colors.black.withValues(alpha: 0.3), // Fondo semitransparente
         shape: BoxShape.circle,
       ),
       child: Icon(icon, color: Colors.white, size: 20),
