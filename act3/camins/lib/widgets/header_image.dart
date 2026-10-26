@@ -92,7 +92,7 @@ class HeaderImage extends StatelessWidget {
         ),
         // 0. Reto: Botones superiores
         Positioned(
-          top: 40, // Ajusta esto para que no choque con la barra de estado del móvil
+          top: 20,
           left: 16,
           right: 16,
           child: Row(
@@ -119,7 +119,7 @@ class HeaderImage extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.3), // Fondo semitransparente
+        color: Colors.black.withValues(alpha: 0.2),
         shape: BoxShape.circle,
       ),
       child: Icon(icon, color: Colors.white, size: 20),

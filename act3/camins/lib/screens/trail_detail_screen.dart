@@ -196,7 +196,13 @@ class TrailDetailScreen extends StatelessWidget {
                   ),
                   _buildEtapa(3, 'Estany Major', '4,6 km · 310 m', '1:45'),
                   _buildEtapa(4, 'Estany Obago', '2,3 km · 150 m', '2:30'),
-                  _buildEtapa(5, 'Tornada als Banys', '3,4 km · 50 m', '3:45'),
+                  _buildEtapa(
+                    5,
+                    'Tornada als Banys',
+                    '3,4 km · 50 m',
+                    '3:45',
+                    isLast: true,
+                  ),
                 ],
               ),
             ),
@@ -307,28 +313,42 @@ Widget _buildPhoto(String imagePath, {bool isLast = false}) {
   );
 }
 
-Widget _buildEtapa(int numero, String nom, String detall, String hora) {
-  return Padding(
-    padding: const EdgeInsets.only(bottom: 12),
+Widget _buildEtapa(
+  int numero,
+  String nom,
+  String detall,
+  String hora, {
+  bool isLast = false,
+}) {
+  return IntrinsicHeight(
     child: Row(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         // Círculo con el número
-        Container(
-          width: 28,
-          height: 28,
-          decoration: BoxDecoration(
-            color: AppStyles.lightGreen,
-            shape: BoxShape.circle,
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            numero.toString(),
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.bold,
-              color: AppStyles.green,
+        Column(
+          children: [
+            Container(
+              width: 28,
+              height: 28,
+              decoration: BoxDecoration(
+                color: AppStyles.lightGreen,
+                shape: BoxShape.circle,
+              ),
+              alignment: Alignment.center,
+              child: Text(
+                numero.toString(),
+                style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold,
+                  color: AppStyles.green,
+                ),
+              ),
             ),
-          ),
+
+            //La lìnea vertical que conecta los círculos
+            if (!isLast)
+              Expanded(child: Container(width: 2, color: AppStyles.lightGreen)),
+          ],
         ),
         AppStyles.smallSeparator,
 

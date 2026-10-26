@@ -1,20 +1,16 @@
-import 'package:flutter/material.dart';
 import 'package:camins/styles/app_styles.dart';
+import 'package:flutter/material.dart';
 
 class TagChip extends StatelessWidget {
   final IconData icon;
   final String label;
 
-  const TagChip({
-    super.key,
-    required this.icon,
-    required this.label,
-  });
+  const TagChip({super.key, required this.icon, required this.label});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         color: AppStyles.lightGreen, // Color verd clar de fondo
         borderRadius: BorderRadius.circular(20),
